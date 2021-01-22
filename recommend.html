@@ -1,0 +1,1969 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>recommend API documentation</title>
+<meta name="description" content="Recommender System" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>recommend</code></h1>
+</header>
+<section id="section-intro">
+<p>Recommender System</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34; Recommender System&#34;&#34;&#34;
+from dataset import *
+from math import sqrt
+import random
+class Colaborative_Filtering:
+    &#34;&#34;&#34;
+    Class Collaborative_Filtering
+    normal: numpy array which is a copy of the train dataset array
+    cosine_similarity_maatrix: numpy array which contains the cosine similarity between the two vectors
+    &#34;&#34;&#34;
+    def __init__(self):
+        &#34;&#34;&#34;
+        Constructor for Collaborative Filtering class
+        &#34;&#34;&#34;
+        self.normal=train_mat.copy()
+        self.cosine_similarity_maatrix=np.zeros((len(train_mat),len(train_mat)))
+
+
+    def normalizeMatrix(self):
+        &#34;&#34;&#34;
+            Takes the normal vector and normalizes the entries present in it by using the mean of the array
+        &#34;&#34;&#34;
+        length=len(self.normal)
+        for i in range(length):
+            mean=self.calculate_mean(self.normal[i])
+            self.normal[i][self.normal[i]&gt;0]-=mean
+
+    def calculate_mean(self,vector):
+        &#34;&#34;&#34;
+            Finds the mean of the given vector and returns the mean of the given vector
+        :param vector: A numpy array whose mean has to be found
+        :return: An integer which is mean of the given array
+        &#34;&#34;&#34;
+        sum=np.sum(vector)
+        a=vector&gt;0
+        n=np.sum(a)
+        if(n==0):
+            return 0
+        return (sum/n)
+
+    def cosine_similarity(self,matrix,vector,index):
+
+        &#34;&#34;&#34;
+        This method calculates the cosine similarity between the given vector and each rows of the given matrix
+        :param matrix: A 2-D numpy array which is the test dataset
+        :param vector: A 1-D numpy array
+        :return: 1-D numpy array containing the similarity between two vectors
+        &#34;&#34;&#34;
+        temp=np.dot(matrix,vector)
+        z=np.linalg.norm(vector)
+        y=np.linalg.norm(matrix,axis=1)
+        temp=temp.T
+        return (temp/(z*y+0.000000000000000000000000000001))
+
+    def pairwisesim(self):
+        &#34;&#34;&#34;
+        This method calculates the pairwise similarity between 2 users
+        :return: void
+        &#34;&#34;&#34;
+        length=len(self.cosine_similarity_maatrix)
+        for i in range(length):
+            vector=np.array([self.normal[i]])
+            self.cosine_similarity_maatrix[i]=self.cosine_similarity(self.normal,vector.T,i)
+
+
+
+    def find_expected_ratings(self,bool_check):
+        &#34;&#34;&#34;
+        This method calculates the rating of any user by the by using the test_data_list. The bool_check value tells us whether baseline approach has to be considered in collaborative
+        filtering approach. If bool_check is true then baseline method is used. This method returns the predicted rating by our model
+        :param bool_check: boolean
+        :return: A 2-d numpy array containg the actual and predicted rating
+        &#34;&#34;&#34;
+        length=len(test_data_list)
+        global_avg=self.calculate_mean(train_mat)
+        predicted_rating=np.zeros((2,length))
+        for i in range(length):
+            rating=self.find_similar_score(test_data_list[i][0],test_data_list[i][1],test_data_list[i][2],bool_check,global_avg)
+            if bool_check is False:
+                predicted_rating[0][i]=rating
+                predicted_rating[1][i]=test_data_list[i][2]
+            elif bool_check is True:
+                user_avg=self.calculate_mean(train_mat[test_data_list[i][0]])
+                x=train_mat.T
+                movie_avg=self.calculate_mean(x[test_data_list[i][1]])
+                predicted_rating[0][i]=rating+user_avg+movie_avg-global_avg
+                predicted_rating[1][i] = test_data_list[i][2]
+
+        return predicted_rating
+
+
+    def find_similar_score(self,user,movie,actual_rating,bool_check,global_avg):
+        &#34;&#34;&#34;
+        This method calls the find_top_k method
+        :param user: user-id of an user
+        :param movie: movie-id of a movie
+        :param actual_rating: Actual rating according to test data
+        :param bool_check: Boolean value for baseline approach
+        :param global_avg: The global mean of the test data
+        :return: void
+        &#34;&#34;&#34;
+        return self.find_top_k(self.cosine_similarity_maatrix[user],train_mat.T[movie],actual_rating,bool_check,global_avg,movie)
+
+    def find_top_k(self,cosine_vector,movie_vector,actual_rating,bool_check,global_avg,movie):
+        &#34;&#34;&#34;
+        This method finds the top k similar users with respect to a user for a particular user
+        :param cosine_vector: The cosine similarity numpy array w.r.t given user
+        :param movie_vector: The ratings for a particular movie
+        :param actual_rating: Actual rating according to test data
+        :param bool_check: Boolean value for baseline approach
+        :param global_avg: The global mean of the test data
+        :param movie: movie-id of a movie
+        :return:
+        &#34;&#34;&#34;
+        temp=np.zeros((3,len(cosine_vector)))
+        temp[0]=cosine_vector
+        temp[1]=movie_vector
+        temp[2]=np.arange(0,len(cosine_vector),1)
+        temp=temp.T
+        list1=temp.tolist()
+        list1.sort(reverse=True)
+        temp=np.array(list1)
+        temp=temp.T
+        return self.calculate_weighted_avg(temp,actual_rating,bool_check,global_avg,movie)
+
+
+    def calculate_weighted_avg(self,temp,actual_rating,bool_check,global_avg,movie):
+        &#34;&#34;&#34;
+        Calculates the weighted score of given matrix w.r.t to the similarity matrix
+        :param temp: Temporoary numpy array storing the movie id values
+        :param actual_rating: actual rating of a given user for a particular movie
+        :param bool_check: boolean value for deciding whether to take baseline approach or not
+        :param global_avg: The global average of the train dataset
+        :param movie: movie id of a particular user
+        :return:
+        &#34;&#34;&#34;
+        product=0
+        sum=0
+        count=0
+        l=temp.shape
+        length=l[1]
+        for i in range(1,length):
+            if temp[1][i]!=0:
+                sum+=temp[0][i]
+                count+=1
+                if bool_check is False:
+                    product += temp[1][i] * temp[0][i]
+                if bool_check is True:
+                    user_avg = self.calculate_mean(train_mat[int(temp[2][i])])
+                    x = train_mat.T
+                    movie_avg = self.calculate_mean(x[movie])
+                    baseline=user_avg+movie_avg-global_avg
+                    product+=temp[0][i]*(temp[1][i]-baseline)
+
+            if count&gt;35:
+                break
+        if sum==0:
+            return actual_rating
+        return (product/sum)
+
+class Error:
+    &#34;&#34;&#34;
+    Class Error
+    &#34;&#34;&#34;
+    def __init__(self):
+        self.top_k=500
+    def rmse(self,rating,xyz):
+        &#34;&#34;&#34;
+        This method calculates the Root Mean Square Error from predicted and actual rating of the user
+        :param rating: A 2-d numpy array containing the actual and predicted rating
+        :param xyz: integer for deciding which model is used for calculations
+        :return: void
+        &#34;&#34;&#34;
+        b=rating[0]-rating[1]
+        c=np.square(b)
+        sum=np.sum(c)
+        x=rating.shape
+        rmse=(sum/x[1])
+        #print(rmse)
+        rmse=sqrt(rmse)
+        #print(rmse)
+        #print(x)
+        if xyz == 4:
+            print(&#34;The Root mean Square error in SVD model with 90* retained Energy is &#34; + str(rmse))
+        if xyz==1:
+            print(&#34;The Root mean Square error in collaborative filtering model without baseline approach is &#34;+str(rmse))
+        if xyz==2:
+            print(&#34;The Root mean Square error in collaborative filtering model with baseline approach is &#34;+str(rmse))
+        if xyz == 6:
+            print(&#34;The Root mean Square error in CUR model with 90% retained Energy is &#34; + str(rms(rmse)))
+        if xyz == 5:
+            print(&#34;The Root mean Square error in CUR model with 100% retained Energy is &#34; + str(rmse))
+        if xyz == 3:
+            print(&#34;The Root mean Square error in SVD model with 100% retained Energy is &#34; + str(rmse))
+
+    def precison_at_top_k(self,rating,x):
+        &#34;&#34;&#34;
+        This method calculates the Prescison at the top k from predicted and actual rating of the user
+        :param rating: A 2-d numpy array containing the actual and predicted rating
+        :param xyz: integer for deciding which model is used for calculations
+        :return: void
+        &#34;&#34;&#34;
+
+        list1=rating.T.tolist()
+        list1.sort(reverse=True)
+        rating=np.array(list1)
+        rating=rating.T
+        occurence_more_than_3= rating[1]&gt;3
+        no_of_relevant_items=occurence_more_than_3.sum()
+        recommend_array=np.array(list1[:self.top_k])
+        recommend_array=recommend_array.T
+        recommend_greater_than_3=recommend_array[0]&gt;3
+        relevant_greater_than_3=recommend_array[1]&gt;3
+        no_of_recomend_items=0
+        for i in range(self.top_k):
+            if recommend_greater_than_3[i]==True and relevant_greater_than_3[i]==True:
+                no_of_recomend_items+=1
+
+        prescison=(no_of_recomend_items/no_of_relevant_items)
+        #print(&#34;the prescison is &#34;+str(prescison))
+        if x==1:
+            print(&#34;The Prescison at top K in collaborative filtering model without baseline approach is &#34;+str(prescison))
+        if x==2:
+            print(&#34;The Prescison at top K in collaborative filtering model with baseline approach is &#34;+str(prescison))
+        if x == 5:
+            print(&#34;The Prescison at top K in CUR model with 100% retained Energy is &#34; + str(prescison))
+        if x == 3:
+            print(&#34;The Prescison at top K in SVD model with 100% retained Energy is &#34; + str(prescison))
+        if x == 6:
+            print(&#34;The Prescison at top K in CUR model with 90% retained Energy is &#34; + str(prescison))
+        if x == 4:
+            print(&#34;The Prescison at top K in SVD model with 90* retained Energy is &#34; + str(prescison))
+
+
+    def spearman_rank_corelation(self,rating,x):
+        &#34;&#34;&#34;
+        This method calculates the Spearman Rank Correlation from predicted and actual rating of the user
+        :param rating: A 2-d numpy array containing the actual and predicted rating
+        :param xyz: integer for deciding which model is used for calculations
+        :return: void
+        &#34;&#34;&#34;
+        xyz = rating.shape
+        length = xyz[1]
+        ranks = np.zeros((2, length))
+        ranks[0] = pd.Series(rating[0]).rank()
+        ranks[1] = pd.Series(rating[1]).rank()
+        mean_predicted = (np.sum(ranks[0]) / length)
+        mean_actual = (np.sum(ranks[1]) / length)
+        ranks[0] = ranks[0] - mean_predicted
+        ranks[1] = ranks[1] - mean_actual
+        temp = ranks.copy()
+        temp = np.square(temp)
+        sum = np.sum(temp, axis=1)
+        numerator = np.dot(ranks[0], ranks[1].T)
+        coff = numerator / sqrt((sum[0] * sum[1]))
+        # print(&#34;the coff is &#34;+str(coff))
+        if x == 1:
+            print(&#34;The Spearman Rank Correlation in collaborative filtering model without baseline approach is &#34; + str(
+                coff))
+        if x == 2:
+            print(
+                &#34;The Spearman Rank Correlation at top K in collaborative filtering model with baseline approach is &#34; + str(
+                    coff))
+        if x == 5:
+            print(&#34;The Spearman Rank Correlation at top K in CUR model with 100% retained Energy is &#34; + str(coff))
+        if x == 3:
+            print(&#34;The Spearman Rank Correlation at top K in SVD model with 100% retained Energy is &#34; + str(coff))
+        if x == 6:
+            print(&#34;The Spearman Rank Correlation at top K in CUR model with 90% retained Energy is &#34; + str(coff))
+        if x == 4:
+            print(&#34;The Spearman Rank Correlation at top K in SVD model with 90* retained Energy is &#34; + str(coff))
+
+class SVD:
+    &#34;&#34;&#34;
+    Class SVD
+    &#34;&#34;&#34;
+    def __init__(self):
+        pass
+    def dimensionality_reduction(self):
+        &#34;&#34;&#34;
+        This method reduces the dimensions of the SVD matrix by retaining 90% of the energy
+
+        :return void
+        &#34;&#34;&#34;
+        self.sigma=np.square(self.sigma)
+        full_sum=np.sum(self.sigma)
+        cnt=0
+        countinous_sum=0
+        length=len(self.sigma)
+        for i in range(length):
+            countinous_sum+=self.sigma[i][i]
+            retained_energy=(countinous_sum/full_sum)
+            if retained_energy &gt;=0.9:
+                cnt=i
+                break
+        for i in range(cnt,length):
+            self.sigma[i][i]=0
+        self.sigma=np.sqrt(self.sigma)
+
+
+    def calculate_SVD_matrices(self,bool_val):
+        &#34;&#34;&#34;
+        This method creates the U, Sigma, VT matrices of the SVD decomposition using the Eigen values of the train matrices. The bool_val tells us about whether dimensionality reduction
+        has to be done or not.
+        :param bool_val: boolean value
+        :return: void
+        &#34;&#34;&#34;
+
+        self.u,s,self.vt=np.linalg.svd(self.train_mat_copy,full_matrices=False)
+        self.sigma=np.zeros((len(self.u),len(self.vt.T)))
+        length=len(self.u)
+        for i in range(length):
+            self.sigma[i][i]=(s[i])
+        self.vt=self.vt.T
+        #print(self.sigma)
+        M=np.dot(self.train_mat_copy,self.train_mat_copy.T)
+        eigval,eigvec=np.linalg.eig(M)
+        indexes=np.argsort(-eigval)
+        u=eigvec[:,indexes]
+        sigma_sq=eigval[indexes]
+        sigma_sq[sigma_sq&lt;0]=0
+        sigma_sq=np.sqrt(sigma_sq)
+
+        M = np.dot(self.train_mat_copy.T, self.train_mat_copy)
+        eigval, eigvec = np.linalg.eig(M)
+        indexes = np.argsort(-eigval)
+        vt = eigvec[:, indexes]
+
+        a=(u.shape)
+        b=(vt.shape)
+
+        sigma=np.zeros((a[0],b[0]))
+        for i in range(a[0]):
+            sigma[i][i]=sigma_sq[i]
+
+        if bool_val is True:
+            self.dimensionality_reduction()
+
+
+    def normalize_data(self):
+        &#34;&#34;&#34;
+        This method normalizes the given dataset bu subtracting rows from their row mean
+        :return: void
+        &#34;&#34;&#34;
+
+        self.user_offset=np.zeros(len(train_mat))
+        self.train_mat_copy=full_data_set.copy()
+        length=len(train_mat)
+        for i in range (length):
+            self.user_offset[i]=((np.sum(self.train_mat_copy[i]))/(np.sum(self.train_mat_copy[i]&gt;0)))
+            self.train_mat_copy[i][self.train_mat_copy[i]&gt;0]-=self.user_offset[i]
+
+    def predict_rating(self):
+        &#34;&#34;&#34;
+        This method predicts the rating by using the U, Sigma, VT matrices.
+        :return: A 2-d Numpy array which contains the predicted ratings
+        &#34;&#34;&#34;
+        usk=np.dot(self.u,self.sigma)
+        u_sigma_v=np.dot(usk,self.vt)
+        #u_sigma_v=np.dot(usk,skv)
+        for i in range(len(u_sigma_v)):
+            u_sigma_v[i][u_sigma_v[i]!=0]+=self.user_offset[i]
+        #print(u_sigma_v)
+        return u_sigma_v
+
+    def create_2d_rating(self,rating):
+        &#34;&#34;&#34;
+        Creates a 2-d numpy array which contains the predicted and actual ratings
+        :param rating: A 2-d numpy array which contains the predicted ratings
+        :return: A 2-d numpy array which contains the actual and predicted ratings
+        &#34;&#34;&#34;
+        length=np.sum(full_data_set&gt;0)
+        rating_2d=np.zeros((2,length))
+        a=rating.shape
+        k=0
+        for i in range(a[0]):
+            for j in range(a[1]):
+                if full_data_set[i][j]!=0:
+                    rating_2d[0][k]=rating[i][j]
+                    rating_2d[1][k]=full_data_set[i][j]
+                    k+=1
+        return full_data_set
+
+class CUR:
+    &#34;&#34;&#34;
+    Class CUR
+    &#34;&#34;&#34;
+    def __init__(self):
+        pass
+    def create_probabilty(self,train_mat):
+        &#34;&#34;&#34;
+        This method creates the probability of all the rows of a given matrix
+        :param train_mat: A 2-d numpy array
+        :return: a 1-d numpy array which contains the row probabilties
+        &#34;&#34;&#34;
+        train_mat=np.square(train_mat)
+        sum_of_all_matrix=np.sum(train_mat)
+        length=len(train_mat)
+        probabilty=np.zeros(length)
+        for i in range(length):
+            probabilty[i]=(np.sum(train_mat[i])/sum_of_all_matrix)
+
+        return probabilty
+
+    def select_n_random_vectors(self,train_mat,row_probabilty,k):
+        &#34;&#34;&#34;
+        This method choes k random vector based on their probabilities of occurrence
+        :param train_mat: A 2-d numpy array from which rows are to be chosen randomly
+        :param row_probabilty: A 1-d numpy array which stores the  probabilities of each row
+        :param k: An integer which tells us how many rows has to be picked
+        :return: returns 2-d numpy matrix which contains the selected rows, a 1-d numpy array which contains the indexes of the roes selected
+        &#34;&#34;&#34;
+        a=np.arange(len(train_mat))
+        row_index=np.random.choice(a,k,True,row_probabilty)
+        #print(row_index)
+        R=np.zeros((k,len(train_mat[0])))
+        for i in range(k):
+            R[i]=train_mat[i]
+            R[i]=R[i]/float(sqrt(k*row_probabilty[i]))
+        return R,row_index
+
+    def create_intersection(self,row_indices,column_indices):
+        &#34;&#34;&#34;
+        This method stores the intersection points of given array from their row and column indexes
+        :param row_indices: The row indexes
+        :param column_indices: The column indexes
+        :return: void
+        &#34;&#34;&#34;
+        self.x=np.zeros((self.k,self.k))
+        for i, row in zip(range(len(row_indices)), row_indices):
+            for j, column in zip(range(len(column_indices)), column_indices):
+                self.x[i][j] = self.train_mat_copy[row][column]
+
+    def dimensionality_reduction(self,eigen_values,k):
+        &#34;&#34;&#34;
+        This method reduces the dimensions of given matrix according to the given &#39;k&#39;
+        :param eigen_values: A numpy 2-d matrix which contains whose reduction has to be done
+        :param k: An integer which contains the retained energy values
+        :return: A 2-d numpy array whose dimensions has been removed
+        &#34;&#34;&#34;
+        eigen_values=np.square(eigen_values)
+        full_sum=np.sum(eigen_values)
+        cnt=0
+        continous_sum=0
+        for i in range(len(eigen_values)):
+            continous_sum+=eigen_values[i]
+            retained_energy=(continous_sum/full_sum)
+            if retained_energy&gt;=k:
+                cnt=i
+                break
+        for i in range(cnt,len(eigen_values)):
+            eigen_values[i]=0
+        return eigen_values
+
+    def create_CUR(self,bool_val):
+        &#34;&#34;&#34;
+        Thise methods calculates the C, U, R matrices of a given matrix and predicts the given rating of an user
+        :param bool_val: Boolean value which tells about the whether dimensions has to be reduced or not
+        :return: predicted ratings of the user by CUR decomposition
+        &#34;&#34;&#34;
+        self.k=300
+        svd=SVD()
+        svd.normalize_data()
+        self.train_mat_copy=svd.train_mat_copy
+        row_probabilty=self.create_probabilty(self.train_mat_copy)
+        column_probabilty=self.create_probabilty(self.train_mat_copy.T)
+        self.R,row_index=self.select_n_random_vectors(self.train_mat_copy,row_probabilty,self.k)
+        self.C,column_index=self.select_n_random_vectors(self.train_mat_copy.T,column_probabilty,self.k)
+        self.C=self.C.T
+        self.create_intersection(row_index,column_index)
+
+        X, eigen_values, YT = np.linalg.svd(self.x, full_matrices=False)
+        #print(eigen_values)
+        sigma = np.zeros((self.k, self.k))
+        sigma_plus = np.zeros((self.k, self.k))
+        if bool_val is True:
+
+            #print(eigen_values)
+            eigen_values=self.dimensionality_reduction(eigen_values,0.9)
+        else:
+            #print(eigen_values)
+            eigen_values = self.dimensionality_reduction(eigen_values, 0.997)
+        for i in range(len(eigen_values)):
+            sigma[i][i] = sqrt(eigen_values[i])
+            if (sigma[i][i] != 0):
+                sigma_plus[i][i] = 1 / float(sigma[i][i])
+
+        U = np.dot(np.dot(YT.T, np.dot(sigma_plus, sigma_plus)), X.T)
+        # print(U)
+        # CUR matrix
+        cur_matrix = np.dot(np.dot(self.C, U), self.R)
+        for i in range(len(cur_matrix)):
+            cur_matrix[i][cur_matrix[i]!=0]+=svd.user_offset[i]
+        #print(cur_matrix)
+        squared_error_sum = 0
+        number_of_predictions = 0
+
+        return cur_matrix
+
+&#39;&#39;&#39;
+
+start=time.time()
+print(&#34;*******************************************Collabarative Filtering without baseline approach**************************************&#34;)
+c=Colaborative_Filtering()
+c.normalizeMatrix()
+c.pairwisesim()
+rating=c.find_expected_ratings(False)
+error=Error()
+error.rmse(rating,1)
+error.precison_at_top_k(rating,1)
+error.spearman_rank_corelation(rating,1)
+end=time.time()
+#print(train_mat)
+print(&#34;Time taken by the above model is  &#34;+str(end-start))
+
+start=time.time()
+print(&#34;*******************************************Collabarative Filtering with baseline approach**************************************&#34;)
+c=Colaborative_Filtering()
+c.normalizeMatrix()
+c.pairwisesim()
+rating=c.find_expected_ratings(True)
+error=Error()
+error.rmse(rating,2)
+error.precison_at_top_k(rating,2)
+error.spearman_rank_corelation(rating,2)
+end=time.time()
+print(&#34;Time taken by the above model is  &#34;+str(end-start))
+
+
+print(&#34;********************* SVD with 100% retained energy ************************* &#34;)
+start=time.time()
+svd=SVD()
+svd.normalize_data()
+svd.calculate_SVD_matrices(False)
+#print(&#34;hi there worls&#34;)
+#print(svd.u)
+rating=svd.predict_rating()
+
+reating=svd.create_2d_rating(rating)
+error=Error()
+error.rmse(rating,3)
+error.precison_at_top_k(rating,3)
+error.spearman_rank_corelation(rating,3)
+end=time.time()
+print(&#34;Time taken by the above model is &#34;+str(end-start))
+
+print(&#34;********************** SVD with 90% retained energy***************************&#34;)
+start=time.time()
+svd=SVD()
+svd.normalize_data()
+svd.calculate_SVD_matrices(True)
+#print(svd.u)
+rating=svd.predict_rating()
+reating=svd.create_2d_rating(rating)
+error=Error()
+error.rmse(rating,4)
+error.precison_at_top_k(rating,4)
+error.spearman_rank_corelation(rating,4)
+end=time.time()
+print(&#34;Time taken by the above model is &#34;+str(end-start))
+
+print(&#34;*****************************CUR WITH 100% retained Energy***************&#34;)
+start=time.time()
+cur=CUR()
+#cur.create_matrices()
+rating=cur.create_CUR(False)
+#print(rating)
+svd=SVD()
+reating=svd.create_2d_rating(rating)
+error=Error()
+error.rmse(rating,5)
+error.precison_at_top_k(rating,5)
+error.spearman_rank_corelation(rating,5)
+end=time.time()
+print(&#34;Time taken by the above model is &#34;+str(end-start))
+
+print(&#34;*****************************CUR WITH 90% retained Energy***************&#34;)
+start=time.time()
+cur=CUR()
+#cur.create_matrices()
+rating=cur.create_CUR(True)
+#print(rating)
+svd=SVD()
+reating=svd.create_2d_rating(rating)
+error=Error()
+error.rmse(rating,6)
+error.precison_at_top_k(rating,6)
+error.spearman_rank_corelation(rating,6)
+end=time.time()
+print(&#34;Time taken by the above model is &#34;+str(end-start))
+&#39;&#39;&#39;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="recommend.CUR"><code class="flex name class">
+<span>class <span class="ident">CUR</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class CUR</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CUR:
+    &#34;&#34;&#34;
+    Class CUR
+    &#34;&#34;&#34;
+    def __init__(self):
+        pass
+    def create_probabilty(self,train_mat):
+        &#34;&#34;&#34;
+        This method creates the probability of all the rows of a given matrix
+        :param train_mat: A 2-d numpy array
+        :return: a 1-d numpy array which contains the row probabilties
+        &#34;&#34;&#34;
+        train_mat=np.square(train_mat)
+        sum_of_all_matrix=np.sum(train_mat)
+        length=len(train_mat)
+        probabilty=np.zeros(length)
+        for i in range(length):
+            probabilty[i]=(np.sum(train_mat[i])/sum_of_all_matrix)
+
+        return probabilty
+
+    def select_n_random_vectors(self,train_mat,row_probabilty,k):
+        &#34;&#34;&#34;
+        This method choes k random vector based on their probabilities of occurrence
+        :param train_mat: A 2-d numpy array from which rows are to be chosen randomly
+        :param row_probabilty: A 1-d numpy array which stores the  probabilities of each row
+        :param k: An integer which tells us how many rows has to be picked
+        :return: returns 2-d numpy matrix which contains the selected rows, a 1-d numpy array which contains the indexes of the roes selected
+        &#34;&#34;&#34;
+        a=np.arange(len(train_mat))
+        row_index=np.random.choice(a,k,True,row_probabilty)
+        #print(row_index)
+        R=np.zeros((k,len(train_mat[0])))
+        for i in range(k):
+            R[i]=train_mat[i]
+            R[i]=R[i]/float(sqrt(k*row_probabilty[i]))
+        return R,row_index
+
+    def create_intersection(self,row_indices,column_indices):
+        &#34;&#34;&#34;
+        This method stores the intersection points of given array from their row and column indexes
+        :param row_indices: The row indexes
+        :param column_indices: The column indexes
+        :return: void
+        &#34;&#34;&#34;
+        self.x=np.zeros((self.k,self.k))
+        for i, row in zip(range(len(row_indices)), row_indices):
+            for j, column in zip(range(len(column_indices)), column_indices):
+                self.x[i][j] = self.train_mat_copy[row][column]
+
+    def dimensionality_reduction(self,eigen_values,k):
+        &#34;&#34;&#34;
+        This method reduces the dimensions of given matrix according to the given &#39;k&#39;
+        :param eigen_values: A numpy 2-d matrix which contains whose reduction has to be done
+        :param k: An integer which contains the retained energy values
+        :return: A 2-d numpy array whose dimensions has been removed
+        &#34;&#34;&#34;
+        eigen_values=np.square(eigen_values)
+        full_sum=np.sum(eigen_values)
+        cnt=0
+        continous_sum=0
+        for i in range(len(eigen_values)):
+            continous_sum+=eigen_values[i]
+            retained_energy=(continous_sum/full_sum)
+            if retained_energy&gt;=k:
+                cnt=i
+                break
+        for i in range(cnt,len(eigen_values)):
+            eigen_values[i]=0
+        return eigen_values
+
+    def create_CUR(self,bool_val):
+        &#34;&#34;&#34;
+        Thise methods calculates the C, U, R matrices of a given matrix and predicts the given rating of an user
+        :param bool_val: Boolean value which tells about the whether dimensions has to be reduced or not
+        :return: predicted ratings of the user by CUR decomposition
+        &#34;&#34;&#34;
+        self.k=300
+        svd=SVD()
+        svd.normalize_data()
+        self.train_mat_copy=svd.train_mat_copy
+        row_probabilty=self.create_probabilty(self.train_mat_copy)
+        column_probabilty=self.create_probabilty(self.train_mat_copy.T)
+        self.R,row_index=self.select_n_random_vectors(self.train_mat_copy,row_probabilty,self.k)
+        self.C,column_index=self.select_n_random_vectors(self.train_mat_copy.T,column_probabilty,self.k)
+        self.C=self.C.T
+        self.create_intersection(row_index,column_index)
+
+        X, eigen_values, YT = np.linalg.svd(self.x, full_matrices=False)
+        #print(eigen_values)
+        sigma = np.zeros((self.k, self.k))
+        sigma_plus = np.zeros((self.k, self.k))
+        if bool_val is True:
+
+            #print(eigen_values)
+            eigen_values=self.dimensionality_reduction(eigen_values,0.9)
+        else:
+            #print(eigen_values)
+            eigen_values = self.dimensionality_reduction(eigen_values, 0.997)
+        for i in range(len(eigen_values)):
+            sigma[i][i] = sqrt(eigen_values[i])
+            if (sigma[i][i] != 0):
+                sigma_plus[i][i] = 1 / float(sigma[i][i])
+
+        U = np.dot(np.dot(YT.T, np.dot(sigma_plus, sigma_plus)), X.T)
+        # print(U)
+        # CUR matrix
+        cur_matrix = np.dot(np.dot(self.C, U), self.R)
+        for i in range(len(cur_matrix)):
+            cur_matrix[i][cur_matrix[i]!=0]+=svd.user_offset[i]
+        #print(cur_matrix)
+        squared_error_sum = 0
+        number_of_predictions = 0
+
+        return cur_matrix</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="recommend.CUR.create_CUR"><code class="name flex">
+<span>def <span class="ident">create_CUR</span></span>(<span>self, bool_val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Thise methods calculates the C, U, R matrices of a given matrix and predicts the given rating of an user
+:param bool_val: Boolean value which tells about the whether dimensions has to be reduced or not
+:return: predicted ratings of the user by CUR decomposition</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_CUR(self,bool_val):
+    &#34;&#34;&#34;
+    Thise methods calculates the C, U, R matrices of a given matrix and predicts the given rating of an user
+    :param bool_val: Boolean value which tells about the whether dimensions has to be reduced or not
+    :return: predicted ratings of the user by CUR decomposition
+    &#34;&#34;&#34;
+    self.k=300
+    svd=SVD()
+    svd.normalize_data()
+    self.train_mat_copy=svd.train_mat_copy
+    row_probabilty=self.create_probabilty(self.train_mat_copy)
+    column_probabilty=self.create_probabilty(self.train_mat_copy.T)
+    self.R,row_index=self.select_n_random_vectors(self.train_mat_copy,row_probabilty,self.k)
+    self.C,column_index=self.select_n_random_vectors(self.train_mat_copy.T,column_probabilty,self.k)
+    self.C=self.C.T
+    self.create_intersection(row_index,column_index)
+
+    X, eigen_values, YT = np.linalg.svd(self.x, full_matrices=False)
+    #print(eigen_values)
+    sigma = np.zeros((self.k, self.k))
+    sigma_plus = np.zeros((self.k, self.k))
+    if bool_val is True:
+
+        #print(eigen_values)
+        eigen_values=self.dimensionality_reduction(eigen_values,0.9)
+    else:
+        #print(eigen_values)
+        eigen_values = self.dimensionality_reduction(eigen_values, 0.997)
+    for i in range(len(eigen_values)):
+        sigma[i][i] = sqrt(eigen_values[i])
+        if (sigma[i][i] != 0):
+            sigma_plus[i][i] = 1 / float(sigma[i][i])
+
+    U = np.dot(np.dot(YT.T, np.dot(sigma_plus, sigma_plus)), X.T)
+    # print(U)
+    # CUR matrix
+    cur_matrix = np.dot(np.dot(self.C, U), self.R)
+    for i in range(len(cur_matrix)):
+        cur_matrix[i][cur_matrix[i]!=0]+=svd.user_offset[i]
+    #print(cur_matrix)
+    squared_error_sum = 0
+    number_of_predictions = 0
+
+    return cur_matrix</code></pre>
+</details>
+</dd>
+<dt id="recommend.CUR.create_intersection"><code class="name flex">
+<span>def <span class="ident">create_intersection</span></span>(<span>self, row_indices, column_indices)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method stores the intersection points of given array from their row and column indexes
+:param row_indices: The row indexes
+:param column_indices: The column indexes
+:return: void</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_intersection(self,row_indices,column_indices):
+    &#34;&#34;&#34;
+    This method stores the intersection points of given array from their row and column indexes
+    :param row_indices: The row indexes
+    :param column_indices: The column indexes
+    :return: void
+    &#34;&#34;&#34;
+    self.x=np.zeros((self.k,self.k))
+    for i, row in zip(range(len(row_indices)), row_indices):
+        for j, column in zip(range(len(column_indices)), column_indices):
+            self.x[i][j] = self.train_mat_copy[row][column]</code></pre>
+</details>
+</dd>
+<dt id="recommend.CUR.create_probabilty"><code class="name flex">
+<span>def <span class="ident">create_probabilty</span></span>(<span>self, train_mat)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method creates the probability of all the rows of a given matrix
+:param train_mat: A 2-d numpy array
+:return: a 1-d numpy array which contains the row probabilties</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_probabilty(self,train_mat):
+    &#34;&#34;&#34;
+    This method creates the probability of all the rows of a given matrix
+    :param train_mat: A 2-d numpy array
+    :return: a 1-d numpy array which contains the row probabilties
+    &#34;&#34;&#34;
+    train_mat=np.square(train_mat)
+    sum_of_all_matrix=np.sum(train_mat)
+    length=len(train_mat)
+    probabilty=np.zeros(length)
+    for i in range(length):
+        probabilty[i]=(np.sum(train_mat[i])/sum_of_all_matrix)
+
+    return probabilty</code></pre>
+</details>
+</dd>
+<dt id="recommend.CUR.dimensionality_reduction"><code class="name flex">
+<span>def <span class="ident">dimensionality_reduction</span></span>(<span>self, eigen_values, k)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reduces the dimensions of given matrix according to the given 'k'
+:param eigen_values: A numpy 2-d matrix which contains whose reduction has to be done
+:param k: An integer which contains the retained energy values
+:return: A 2-d numpy array whose dimensions has been removed</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dimensionality_reduction(self,eigen_values,k):
+    &#34;&#34;&#34;
+    This method reduces the dimensions of given matrix according to the given &#39;k&#39;
+    :param eigen_values: A numpy 2-d matrix which contains whose reduction has to be done
+    :param k: An integer which contains the retained energy values
+    :return: A 2-d numpy array whose dimensions has been removed
+    &#34;&#34;&#34;
+    eigen_values=np.square(eigen_values)
+    full_sum=np.sum(eigen_values)
+    cnt=0
+    continous_sum=0
+    for i in range(len(eigen_values)):
+        continous_sum+=eigen_values[i]
+        retained_energy=(continous_sum/full_sum)
+        if retained_energy&gt;=k:
+            cnt=i
+            break
+    for i in range(cnt,len(eigen_values)):
+        eigen_values[i]=0
+    return eigen_values</code></pre>
+</details>
+</dd>
+<dt id="recommend.CUR.select_n_random_vectors"><code class="name flex">
+<span>def <span class="ident">select_n_random_vectors</span></span>(<span>self, train_mat, row_probabilty, k)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method choes k random vector based on their probabilities of occurrence
+:param train_mat: A 2-d numpy array from which rows are to be chosen randomly
+:param row_probabilty: A 1-d numpy array which stores the
+probabilities of each row
+:param k: An integer which tells us how many rows has to be picked
+:return: returns 2-d numpy matrix which contains the selected rows, a 1-d numpy array which contains the indexes of the roes selected</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def select_n_random_vectors(self,train_mat,row_probabilty,k):
+    &#34;&#34;&#34;
+    This method choes k random vector based on their probabilities of occurrence
+    :param train_mat: A 2-d numpy array from which rows are to be chosen randomly
+    :param row_probabilty: A 1-d numpy array which stores the  probabilities of each row
+    :param k: An integer which tells us how many rows has to be picked
+    :return: returns 2-d numpy matrix which contains the selected rows, a 1-d numpy array which contains the indexes of the roes selected
+    &#34;&#34;&#34;
+    a=np.arange(len(train_mat))
+    row_index=np.random.choice(a,k,True,row_probabilty)
+    #print(row_index)
+    R=np.zeros((k,len(train_mat[0])))
+    for i in range(k):
+        R[i]=train_mat[i]
+        R[i]=R[i]/float(sqrt(k*row_probabilty[i]))
+    return R,row_index</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="recommend.Colaborative_Filtering"><code class="flex name class">
+<span>class <span class="ident">Colaborative_Filtering</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class Collaborative_Filtering
+normal: numpy array which is a copy of the train dataset array
+cosine_similarity_maatrix: numpy array which contains the cosine similarity between the two vectors</p>
+<p>Constructor for Collaborative Filtering class</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Colaborative_Filtering:
+    &#34;&#34;&#34;
+    Class Collaborative_Filtering
+    normal: numpy array which is a copy of the train dataset array
+    cosine_similarity_maatrix: numpy array which contains the cosine similarity between the two vectors
+    &#34;&#34;&#34;
+    def __init__(self):
+        &#34;&#34;&#34;
+        Constructor for Collaborative Filtering class
+        &#34;&#34;&#34;
+        self.normal=train_mat.copy()
+        self.cosine_similarity_maatrix=np.zeros((len(train_mat),len(train_mat)))
+
+
+    def normalizeMatrix(self):
+        &#34;&#34;&#34;
+            Takes the normal vector and normalizes the entries present in it by using the mean of the array
+        &#34;&#34;&#34;
+        length=len(self.normal)
+        for i in range(length):
+            mean=self.calculate_mean(self.normal[i])
+            self.normal[i][self.normal[i]&gt;0]-=mean
+
+    def calculate_mean(self,vector):
+        &#34;&#34;&#34;
+            Finds the mean of the given vector and returns the mean of the given vector
+        :param vector: A numpy array whose mean has to be found
+        :return: An integer which is mean of the given array
+        &#34;&#34;&#34;
+        sum=np.sum(vector)
+        a=vector&gt;0
+        n=np.sum(a)
+        if(n==0):
+            return 0
+        return (sum/n)
+
+    def cosine_similarity(self,matrix,vector,index):
+
+        &#34;&#34;&#34;
+        This method calculates the cosine similarity between the given vector and each rows of the given matrix
+        :param matrix: A 2-D numpy array which is the test dataset
+        :param vector: A 1-D numpy array
+        :return: 1-D numpy array containing the similarity between two vectors
+        &#34;&#34;&#34;
+        temp=np.dot(matrix,vector)
+        z=np.linalg.norm(vector)
+        y=np.linalg.norm(matrix,axis=1)
+        temp=temp.T
+        return (temp/(z*y+0.000000000000000000000000000001))
+
+    def pairwisesim(self):
+        &#34;&#34;&#34;
+        This method calculates the pairwise similarity between 2 users
+        :return: void
+        &#34;&#34;&#34;
+        length=len(self.cosine_similarity_maatrix)
+        for i in range(length):
+            vector=np.array([self.normal[i]])
+            self.cosine_similarity_maatrix[i]=self.cosine_similarity(self.normal,vector.T,i)
+
+
+
+    def find_expected_ratings(self,bool_check):
+        &#34;&#34;&#34;
+        This method calculates the rating of any user by the by using the test_data_list. The bool_check value tells us whether baseline approach has to be considered in collaborative
+        filtering approach. If bool_check is true then baseline method is used. This method returns the predicted rating by our model
+        :param bool_check: boolean
+        :return: A 2-d numpy array containg the actual and predicted rating
+        &#34;&#34;&#34;
+        length=len(test_data_list)
+        global_avg=self.calculate_mean(train_mat)
+        predicted_rating=np.zeros((2,length))
+        for i in range(length):
+            rating=self.find_similar_score(test_data_list[i][0],test_data_list[i][1],test_data_list[i][2],bool_check,global_avg)
+            if bool_check is False:
+                predicted_rating[0][i]=rating
+                predicted_rating[1][i]=test_data_list[i][2]
+            elif bool_check is True:
+                user_avg=self.calculate_mean(train_mat[test_data_list[i][0]])
+                x=train_mat.T
+                movie_avg=self.calculate_mean(x[test_data_list[i][1]])
+                predicted_rating[0][i]=rating+user_avg+movie_avg-global_avg
+                predicted_rating[1][i] = test_data_list[i][2]
+
+        return predicted_rating
+
+
+    def find_similar_score(self,user,movie,actual_rating,bool_check,global_avg):
+        &#34;&#34;&#34;
+        This method calls the find_top_k method
+        :param user: user-id of an user
+        :param movie: movie-id of a movie
+        :param actual_rating: Actual rating according to test data
+        :param bool_check: Boolean value for baseline approach
+        :param global_avg: The global mean of the test data
+        :return: void
+        &#34;&#34;&#34;
+        return self.find_top_k(self.cosine_similarity_maatrix[user],train_mat.T[movie],actual_rating,bool_check,global_avg,movie)
+
+    def find_top_k(self,cosine_vector,movie_vector,actual_rating,bool_check,global_avg,movie):
+        &#34;&#34;&#34;
+        This method finds the top k similar users with respect to a user for a particular user
+        :param cosine_vector: The cosine similarity numpy array w.r.t given user
+        :param movie_vector: The ratings for a particular movie
+        :param actual_rating: Actual rating according to test data
+        :param bool_check: Boolean value for baseline approach
+        :param global_avg: The global mean of the test data
+        :param movie: movie-id of a movie
+        :return:
+        &#34;&#34;&#34;
+        temp=np.zeros((3,len(cosine_vector)))
+        temp[0]=cosine_vector
+        temp[1]=movie_vector
+        temp[2]=np.arange(0,len(cosine_vector),1)
+        temp=temp.T
+        list1=temp.tolist()
+        list1.sort(reverse=True)
+        temp=np.array(list1)
+        temp=temp.T
+        return self.calculate_weighted_avg(temp,actual_rating,bool_check,global_avg,movie)
+
+
+    def calculate_weighted_avg(self,temp,actual_rating,bool_check,global_avg,movie):
+        &#34;&#34;&#34;
+        Calculates the weighted score of given matrix w.r.t to the similarity matrix
+        :param temp: Temporoary numpy array storing the movie id values
+        :param actual_rating: actual rating of a given user for a particular movie
+        :param bool_check: boolean value for deciding whether to take baseline approach or not
+        :param global_avg: The global average of the train dataset
+        :param movie: movie id of a particular user
+        :return:
+        &#34;&#34;&#34;
+        product=0
+        sum=0
+        count=0
+        l=temp.shape
+        length=l[1]
+        for i in range(1,length):
+            if temp[1][i]!=0:
+                sum+=temp[0][i]
+                count+=1
+                if bool_check is False:
+                    product += temp[1][i] * temp[0][i]
+                if bool_check is True:
+                    user_avg = self.calculate_mean(train_mat[int(temp[2][i])])
+                    x = train_mat.T
+                    movie_avg = self.calculate_mean(x[movie])
+                    baseline=user_avg+movie_avg-global_avg
+                    product+=temp[0][i]*(temp[1][i]-baseline)
+
+            if count&gt;35:
+                break
+        if sum==0:
+            return actual_rating
+        return (product/sum)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="recommend.Colaborative_Filtering.calculate_mean"><code class="name flex">
+<span>def <span class="ident">calculate_mean</span></span>(<span>self, vector)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds the mean of the given vector and returns the mean of the given vector
+:param vector: A numpy array whose mean has to be found
+:return: An integer which is mean of the given array</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_mean(self,vector):
+    &#34;&#34;&#34;
+        Finds the mean of the given vector and returns the mean of the given vector
+    :param vector: A numpy array whose mean has to be found
+    :return: An integer which is mean of the given array
+    &#34;&#34;&#34;
+    sum=np.sum(vector)
+    a=vector&gt;0
+    n=np.sum(a)
+    if(n==0):
+        return 0
+    return (sum/n)</code></pre>
+</details>
+</dd>
+<dt id="recommend.Colaborative_Filtering.calculate_weighted_avg"><code class="name flex">
+<span>def <span class="ident">calculate_weighted_avg</span></span>(<span>self, temp, actual_rating, bool_check, global_avg, movie)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates the weighted score of given matrix w.r.t to the similarity matrix
+:param temp: Temporoary numpy array storing the movie id values
+:param actual_rating: actual rating of a given user for a particular movie
+:param bool_check: boolean value for deciding whether to take baseline approach or not
+:param global_avg: The global average of the train dataset
+:param movie: movie id of a particular user
+:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_weighted_avg(self,temp,actual_rating,bool_check,global_avg,movie):
+    &#34;&#34;&#34;
+    Calculates the weighted score of given matrix w.r.t to the similarity matrix
+    :param temp: Temporoary numpy array storing the movie id values
+    :param actual_rating: actual rating of a given user for a particular movie
+    :param bool_check: boolean value for deciding whether to take baseline approach or not
+    :param global_avg: The global average of the train dataset
+    :param movie: movie id of a particular user
+    :return:
+    &#34;&#34;&#34;
+    product=0
+    sum=0
+    count=0
+    l=temp.shape
+    length=l[1]
+    for i in range(1,length):
+        if temp[1][i]!=0:
+            sum+=temp[0][i]
+            count+=1
+            if bool_check is False:
+                product += temp[1][i] * temp[0][i]
+            if bool_check is True:
+                user_avg = self.calculate_mean(train_mat[int(temp[2][i])])
+                x = train_mat.T
+                movie_avg = self.calculate_mean(x[movie])
+                baseline=user_avg+movie_avg-global_avg
+                product+=temp[0][i]*(temp[1][i]-baseline)
+
+        if count&gt;35:
+            break
+    if sum==0:
+        return actual_rating
+    return (product/sum)</code></pre>
+</details>
+</dd>
+<dt id="recommend.Colaborative_Filtering.cosine_similarity"><code class="name flex">
+<span>def <span class="ident">cosine_similarity</span></span>(<span>self, matrix, vector, index)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method calculates the cosine similarity between the given vector and each rows of the given matrix
+:param matrix: A 2-D numpy array which is the test dataset
+:param vector: A 1-D numpy array
+:return: 1-D numpy array containing the similarity between two vectors</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cosine_similarity(self,matrix,vector,index):
+
+    &#34;&#34;&#34;
+    This method calculates the cosine similarity between the given vector and each rows of the given matrix
+    :param matrix: A 2-D numpy array which is the test dataset
+    :param vector: A 1-D numpy array
+    :return: 1-D numpy array containing the similarity between two vectors
+    &#34;&#34;&#34;
+    temp=np.dot(matrix,vector)
+    z=np.linalg.norm(vector)
+    y=np.linalg.norm(matrix,axis=1)
+    temp=temp.T
+    return (temp/(z*y+0.000000000000000000000000000001))</code></pre>
+</details>
+</dd>
+<dt id="recommend.Colaborative_Filtering.find_expected_ratings"><code class="name flex">
+<span>def <span class="ident">find_expected_ratings</span></span>(<span>self, bool_check)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method calculates the rating of any user by the by using the test_data_list. The bool_check value tells us whether baseline approach has to be considered in collaborative
+filtering approach. If bool_check is true then baseline method is used. This method returns the predicted rating by our model
+:param bool_check: boolean
+:return: A 2-d numpy array containg the actual and predicted rating</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find_expected_ratings(self,bool_check):
+    &#34;&#34;&#34;
+    This method calculates the rating of any user by the by using the test_data_list. The bool_check value tells us whether baseline approach has to be considered in collaborative
+    filtering approach. If bool_check is true then baseline method is used. This method returns the predicted rating by our model
+    :param bool_check: boolean
+    :return: A 2-d numpy array containg the actual and predicted rating
+    &#34;&#34;&#34;
+    length=len(test_data_list)
+    global_avg=self.calculate_mean(train_mat)
+    predicted_rating=np.zeros((2,length))
+    for i in range(length):
+        rating=self.find_similar_score(test_data_list[i][0],test_data_list[i][1],test_data_list[i][2],bool_check,global_avg)
+        if bool_check is False:
+            predicted_rating[0][i]=rating
+            predicted_rating[1][i]=test_data_list[i][2]
+        elif bool_check is True:
+            user_avg=self.calculate_mean(train_mat[test_data_list[i][0]])
+            x=train_mat.T
+            movie_avg=self.calculate_mean(x[test_data_list[i][1]])
+            predicted_rating[0][i]=rating+user_avg+movie_avg-global_avg
+            predicted_rating[1][i] = test_data_list[i][2]
+
+    return predicted_rating</code></pre>
+</details>
+</dd>
+<dt id="recommend.Colaborative_Filtering.find_similar_score"><code class="name flex">
+<span>def <span class="ident">find_similar_score</span></span>(<span>self, user, movie, actual_rating, bool_check, global_avg)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method calls the find_top_k method
+:param user: user-id of an user
+:param movie: movie-id of a movie
+:param actual_rating: Actual rating according to test data
+:param bool_check: Boolean value for baseline approach
+:param global_avg: The global mean of the test data
+:return: void</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find_similar_score(self,user,movie,actual_rating,bool_check,global_avg):
+    &#34;&#34;&#34;
+    This method calls the find_top_k method
+    :param user: user-id of an user
+    :param movie: movie-id of a movie
+    :param actual_rating: Actual rating according to test data
+    :param bool_check: Boolean value for baseline approach
+    :param global_avg: The global mean of the test data
+    :return: void
+    &#34;&#34;&#34;
+    return self.find_top_k(self.cosine_similarity_maatrix[user],train_mat.T[movie],actual_rating,bool_check,global_avg,movie)</code></pre>
+</details>
+</dd>
+<dt id="recommend.Colaborative_Filtering.find_top_k"><code class="name flex">
+<span>def <span class="ident">find_top_k</span></span>(<span>self, cosine_vector, movie_vector, actual_rating, bool_check, global_avg, movie)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method finds the top k similar users with respect to a user for a particular user
+:param cosine_vector: The cosine similarity numpy array w.r.t given user
+:param movie_vector: The ratings for a particular movie
+:param actual_rating: Actual rating according to test data
+:param bool_check: Boolean value for baseline approach
+:param global_avg: The global mean of the test data
+:param movie: movie-id of a movie
+:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find_top_k(self,cosine_vector,movie_vector,actual_rating,bool_check,global_avg,movie):
+    &#34;&#34;&#34;
+    This method finds the top k similar users with respect to a user for a particular user
+    :param cosine_vector: The cosine similarity numpy array w.r.t given user
+    :param movie_vector: The ratings for a particular movie
+    :param actual_rating: Actual rating according to test data
+    :param bool_check: Boolean value for baseline approach
+    :param global_avg: The global mean of the test data
+    :param movie: movie-id of a movie
+    :return:
+    &#34;&#34;&#34;
+    temp=np.zeros((3,len(cosine_vector)))
+    temp[0]=cosine_vector
+    temp[1]=movie_vector
+    temp[2]=np.arange(0,len(cosine_vector),1)
+    temp=temp.T
+    list1=temp.tolist()
+    list1.sort(reverse=True)
+    temp=np.array(list1)
+    temp=temp.T
+    return self.calculate_weighted_avg(temp,actual_rating,bool_check,global_avg,movie)</code></pre>
+</details>
+</dd>
+<dt id="recommend.Colaborative_Filtering.normalizeMatrix"><code class="name flex">
+<span>def <span class="ident">normalizeMatrix</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Takes the normal vector and normalizes the entries present in it by using the mean of the array</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def normalizeMatrix(self):
+    &#34;&#34;&#34;
+        Takes the normal vector and normalizes the entries present in it by using the mean of the array
+    &#34;&#34;&#34;
+    length=len(self.normal)
+    for i in range(length):
+        mean=self.calculate_mean(self.normal[i])
+        self.normal[i][self.normal[i]&gt;0]-=mean</code></pre>
+</details>
+</dd>
+<dt id="recommend.Colaborative_Filtering.pairwisesim"><code class="name flex">
+<span>def <span class="ident">pairwisesim</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method calculates the pairwise similarity between 2 users
+:return: void</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pairwisesim(self):
+    &#34;&#34;&#34;
+    This method calculates the pairwise similarity between 2 users
+    :return: void
+    &#34;&#34;&#34;
+    length=len(self.cosine_similarity_maatrix)
+    for i in range(length):
+        vector=np.array([self.normal[i]])
+        self.cosine_similarity_maatrix[i]=self.cosine_similarity(self.normal,vector.T,i)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="recommend.Error"><code class="flex name class">
+<span>class <span class="ident">Error</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class Error</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Error:
+    &#34;&#34;&#34;
+    Class Error
+    &#34;&#34;&#34;
+    def __init__(self):
+        self.top_k=500
+    def rmse(self,rating,xyz):
+        &#34;&#34;&#34;
+        This method calculates the Root Mean Square Error from predicted and actual rating of the user
+        :param rating: A 2-d numpy array containing the actual and predicted rating
+        :param xyz: integer for deciding which model is used for calculations
+        :return: void
+        &#34;&#34;&#34;
+        b=rating[0]-rating[1]
+        c=np.square(b)
+        sum=np.sum(c)
+        x=rating.shape
+        rmse=(sum/x[1])
+        #print(rmse)
+        rmse=sqrt(rmse)
+        #print(rmse)
+        #print(x)
+        if xyz == 4:
+            print(&#34;The Root mean Square error in SVD model with 90* retained Energy is &#34; + str(rmse))
+        if xyz==1:
+            print(&#34;The Root mean Square error in collaborative filtering model without baseline approach is &#34;+str(rmse))
+        if xyz==2:
+            print(&#34;The Root mean Square error in collaborative filtering model with baseline approach is &#34;+str(rmse))
+        if xyz == 6:
+            print(&#34;The Root mean Square error in CUR model with 90% retained Energy is &#34; + str(rms(rmse)))
+        if xyz == 5:
+            print(&#34;The Root mean Square error in CUR model with 100% retained Energy is &#34; + str(rmse))
+        if xyz == 3:
+            print(&#34;The Root mean Square error in SVD model with 100% retained Energy is &#34; + str(rmse))
+
+    def precison_at_top_k(self,rating,x):
+        &#34;&#34;&#34;
+        This method calculates the Prescison at the top k from predicted and actual rating of the user
+        :param rating: A 2-d numpy array containing the actual and predicted rating
+        :param xyz: integer for deciding which model is used for calculations
+        :return: void
+        &#34;&#34;&#34;
+
+        list1=rating.T.tolist()
+        list1.sort(reverse=True)
+        rating=np.array(list1)
+        rating=rating.T
+        occurence_more_than_3= rating[1]&gt;3
+        no_of_relevant_items=occurence_more_than_3.sum()
+        recommend_array=np.array(list1[:self.top_k])
+        recommend_array=recommend_array.T
+        recommend_greater_than_3=recommend_array[0]&gt;3
+        relevant_greater_than_3=recommend_array[1]&gt;3
+        no_of_recomend_items=0
+        for i in range(self.top_k):
+            if recommend_greater_than_3[i]==True and relevant_greater_than_3[i]==True:
+                no_of_recomend_items+=1
+
+        prescison=(no_of_recomend_items/no_of_relevant_items)
+        #print(&#34;the prescison is &#34;+str(prescison))
+        if x==1:
+            print(&#34;The Prescison at top K in collaborative filtering model without baseline approach is &#34;+str(prescison))
+        if x==2:
+            print(&#34;The Prescison at top K in collaborative filtering model with baseline approach is &#34;+str(prescison))
+        if x == 5:
+            print(&#34;The Prescison at top K in CUR model with 100% retained Energy is &#34; + str(prescison))
+        if x == 3:
+            print(&#34;The Prescison at top K in SVD model with 100% retained Energy is &#34; + str(prescison))
+        if x == 6:
+            print(&#34;The Prescison at top K in CUR model with 90% retained Energy is &#34; + str(prescison))
+        if x == 4:
+            print(&#34;The Prescison at top K in SVD model with 90* retained Energy is &#34; + str(prescison))
+
+
+    def spearman_rank_corelation(self,rating,x):
+        &#34;&#34;&#34;
+        This method calculates the Spearman Rank Correlation from predicted and actual rating of the user
+        :param rating: A 2-d numpy array containing the actual and predicted rating
+        :param xyz: integer for deciding which model is used for calculations
+        :return: void
+        &#34;&#34;&#34;
+        xyz = rating.shape
+        length = xyz[1]
+        ranks = np.zeros((2, length))
+        ranks[0] = pd.Series(rating[0]).rank()
+        ranks[1] = pd.Series(rating[1]).rank()
+        mean_predicted = (np.sum(ranks[0]) / length)
+        mean_actual = (np.sum(ranks[1]) / length)
+        ranks[0] = ranks[0] - mean_predicted
+        ranks[1] = ranks[1] - mean_actual
+        temp = ranks.copy()
+        temp = np.square(temp)
+        sum = np.sum(temp, axis=1)
+        numerator = np.dot(ranks[0], ranks[1].T)
+        coff = numerator / sqrt((sum[0] * sum[1]))
+        # print(&#34;the coff is &#34;+str(coff))
+        if x == 1:
+            print(&#34;The Spearman Rank Correlation in collaborative filtering model without baseline approach is &#34; + str(
+                coff))
+        if x == 2:
+            print(
+                &#34;The Spearman Rank Correlation at top K in collaborative filtering model with baseline approach is &#34; + str(
+                    coff))
+        if x == 5:
+            print(&#34;The Spearman Rank Correlation at top K in CUR model with 100% retained Energy is &#34; + str(coff))
+        if x == 3:
+            print(&#34;The Spearman Rank Correlation at top K in SVD model with 100% retained Energy is &#34; + str(coff))
+        if x == 6:
+            print(&#34;The Spearman Rank Correlation at top K in CUR model with 90% retained Energy is &#34; + str(coff))
+        if x == 4:
+            print(&#34;The Spearman Rank Correlation at top K in SVD model with 90* retained Energy is &#34; + str(coff))</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="recommend.Error.precison_at_top_k"><code class="name flex">
+<span>def <span class="ident">precison_at_top_k</span></span>(<span>self, rating, x)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method calculates the Prescison at the top k from predicted and actual rating of the user
+:param rating: A 2-d numpy array containing the actual and predicted rating
+:param xyz: integer for deciding which model is used for calculations
+:return: void</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def precison_at_top_k(self,rating,x):
+    &#34;&#34;&#34;
+    This method calculates the Prescison at the top k from predicted and actual rating of the user
+    :param rating: A 2-d numpy array containing the actual and predicted rating
+    :param xyz: integer for deciding which model is used for calculations
+    :return: void
+    &#34;&#34;&#34;
+
+    list1=rating.T.tolist()
+    list1.sort(reverse=True)
+    rating=np.array(list1)
+    rating=rating.T
+    occurence_more_than_3= rating[1]&gt;3
+    no_of_relevant_items=occurence_more_than_3.sum()
+    recommend_array=np.array(list1[:self.top_k])
+    recommend_array=recommend_array.T
+    recommend_greater_than_3=recommend_array[0]&gt;3
+    relevant_greater_than_3=recommend_array[1]&gt;3
+    no_of_recomend_items=0
+    for i in range(self.top_k):
+        if recommend_greater_than_3[i]==True and relevant_greater_than_3[i]==True:
+            no_of_recomend_items+=1
+
+    prescison=(no_of_recomend_items/no_of_relevant_items)
+    #print(&#34;the prescison is &#34;+str(prescison))
+    if x==1:
+        print(&#34;The Prescison at top K in collaborative filtering model without baseline approach is &#34;+str(prescison))
+    if x==2:
+        print(&#34;The Prescison at top K in collaborative filtering model with baseline approach is &#34;+str(prescison))
+    if x == 5:
+        print(&#34;The Prescison at top K in CUR model with 100% retained Energy is &#34; + str(prescison))
+    if x == 3:
+        print(&#34;The Prescison at top K in SVD model with 100% retained Energy is &#34; + str(prescison))
+    if x == 6:
+        print(&#34;The Prescison at top K in CUR model with 90% retained Energy is &#34; + str(prescison))
+    if x == 4:
+        print(&#34;The Prescison at top K in SVD model with 90* retained Energy is &#34; + str(prescison))</code></pre>
+</details>
+</dd>
+<dt id="recommend.Error.rmse"><code class="name flex">
+<span>def <span class="ident">rmse</span></span>(<span>self, rating, xyz)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method calculates the Root Mean Square Error from predicted and actual rating of the user
+:param rating: A 2-d numpy array containing the actual and predicted rating
+:param xyz: integer for deciding which model is used for calculations
+:return: void</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rmse(self,rating,xyz):
+    &#34;&#34;&#34;
+    This method calculates the Root Mean Square Error from predicted and actual rating of the user
+    :param rating: A 2-d numpy array containing the actual and predicted rating
+    :param xyz: integer for deciding which model is used for calculations
+    :return: void
+    &#34;&#34;&#34;
+    b=rating[0]-rating[1]
+    c=np.square(b)
+    sum=np.sum(c)
+    x=rating.shape
+    rmse=(sum/x[1])
+    #print(rmse)
+    rmse=sqrt(rmse)
+    #print(rmse)
+    #print(x)
+    if xyz == 4:
+        print(&#34;The Root mean Square error in SVD model with 90* retained Energy is &#34; + str(rmse))
+    if xyz==1:
+        print(&#34;The Root mean Square error in collaborative filtering model without baseline approach is &#34;+str(rmse))
+    if xyz==2:
+        print(&#34;The Root mean Square error in collaborative filtering model with baseline approach is &#34;+str(rmse))
+    if xyz == 6:
+        print(&#34;The Root mean Square error in CUR model with 90% retained Energy is &#34; + str(rms(rmse)))
+    if xyz == 5:
+        print(&#34;The Root mean Square error in CUR model with 100% retained Energy is &#34; + str(rmse))
+    if xyz == 3:
+        print(&#34;The Root mean Square error in SVD model with 100% retained Energy is &#34; + str(rmse))</code></pre>
+</details>
+</dd>
+<dt id="recommend.Error.spearman_rank_corelation"><code class="name flex">
+<span>def <span class="ident">spearman_rank_corelation</span></span>(<span>self, rating, x)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method calculates the Spearman Rank Correlation from predicted and actual rating of the user
+:param rating: A 2-d numpy array containing the actual and predicted rating
+:param xyz: integer for deciding which model is used for calculations
+:return: void</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def spearman_rank_corelation(self,rating,x):
+    &#34;&#34;&#34;
+    This method calculates the Spearman Rank Correlation from predicted and actual rating of the user
+    :param rating: A 2-d numpy array containing the actual and predicted rating
+    :param xyz: integer for deciding which model is used for calculations
+    :return: void
+    &#34;&#34;&#34;
+    xyz = rating.shape
+    length = xyz[1]
+    ranks = np.zeros((2, length))
+    ranks[0] = pd.Series(rating[0]).rank()
+    ranks[1] = pd.Series(rating[1]).rank()
+    mean_predicted = (np.sum(ranks[0]) / length)
+    mean_actual = (np.sum(ranks[1]) / length)
+    ranks[0] = ranks[0] - mean_predicted
+    ranks[1] = ranks[1] - mean_actual
+    temp = ranks.copy()
+    temp = np.square(temp)
+    sum = np.sum(temp, axis=1)
+    numerator = np.dot(ranks[0], ranks[1].T)
+    coff = numerator / sqrt((sum[0] * sum[1]))
+    # print(&#34;the coff is &#34;+str(coff))
+    if x == 1:
+        print(&#34;The Spearman Rank Correlation in collaborative filtering model without baseline approach is &#34; + str(
+            coff))
+    if x == 2:
+        print(
+            &#34;The Spearman Rank Correlation at top K in collaborative filtering model with baseline approach is &#34; + str(
+                coff))
+    if x == 5:
+        print(&#34;The Spearman Rank Correlation at top K in CUR model with 100% retained Energy is &#34; + str(coff))
+    if x == 3:
+        print(&#34;The Spearman Rank Correlation at top K in SVD model with 100% retained Energy is &#34; + str(coff))
+    if x == 6:
+        print(&#34;The Spearman Rank Correlation at top K in CUR model with 90% retained Energy is &#34; + str(coff))
+    if x == 4:
+        print(&#34;The Spearman Rank Correlation at top K in SVD model with 90* retained Energy is &#34; + str(coff))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="recommend.SVD"><code class="flex name class">
+<span>class <span class="ident">SVD</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class SVD</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SVD:
+    &#34;&#34;&#34;
+    Class SVD
+    &#34;&#34;&#34;
+    def __init__(self):
+        pass
+    def dimensionality_reduction(self):
+        &#34;&#34;&#34;
+        This method reduces the dimensions of the SVD matrix by retaining 90% of the energy
+
+        :return void
+        &#34;&#34;&#34;
+        self.sigma=np.square(self.sigma)
+        full_sum=np.sum(self.sigma)
+        cnt=0
+        countinous_sum=0
+        length=len(self.sigma)
+        for i in range(length):
+            countinous_sum+=self.sigma[i][i]
+            retained_energy=(countinous_sum/full_sum)
+            if retained_energy &gt;=0.9:
+                cnt=i
+                break
+        for i in range(cnt,length):
+            self.sigma[i][i]=0
+        self.sigma=np.sqrt(self.sigma)
+
+
+    def calculate_SVD_matrices(self,bool_val):
+        &#34;&#34;&#34;
+        This method creates the U, Sigma, VT matrices of the SVD decomposition using the Eigen values of the train matrices. The bool_val tells us about whether dimensionality reduction
+        has to be done or not.
+        :param bool_val: boolean value
+        :return: void
+        &#34;&#34;&#34;
+
+        self.u,s,self.vt=np.linalg.svd(self.train_mat_copy,full_matrices=False)
+        self.sigma=np.zeros((len(self.u),len(self.vt.T)))
+        length=len(self.u)
+        for i in range(length):
+            self.sigma[i][i]=(s[i])
+        self.vt=self.vt.T
+        #print(self.sigma)
+        M=np.dot(self.train_mat_copy,self.train_mat_copy.T)
+        eigval,eigvec=np.linalg.eig(M)
+        indexes=np.argsort(-eigval)
+        u=eigvec[:,indexes]
+        sigma_sq=eigval[indexes]
+        sigma_sq[sigma_sq&lt;0]=0
+        sigma_sq=np.sqrt(sigma_sq)
+
+        M = np.dot(self.train_mat_copy.T, self.train_mat_copy)
+        eigval, eigvec = np.linalg.eig(M)
+        indexes = np.argsort(-eigval)
+        vt = eigvec[:, indexes]
+
+        a=(u.shape)
+        b=(vt.shape)
+
+        sigma=np.zeros((a[0],b[0]))
+        for i in range(a[0]):
+            sigma[i][i]=sigma_sq[i]
+
+        if bool_val is True:
+            self.dimensionality_reduction()
+
+
+    def normalize_data(self):
+        &#34;&#34;&#34;
+        This method normalizes the given dataset bu subtracting rows from their row mean
+        :return: void
+        &#34;&#34;&#34;
+
+        self.user_offset=np.zeros(len(train_mat))
+        self.train_mat_copy=full_data_set.copy()
+        length=len(train_mat)
+        for i in range (length):
+            self.user_offset[i]=((np.sum(self.train_mat_copy[i]))/(np.sum(self.train_mat_copy[i]&gt;0)))
+            self.train_mat_copy[i][self.train_mat_copy[i]&gt;0]-=self.user_offset[i]
+
+    def predict_rating(self):
+        &#34;&#34;&#34;
+        This method predicts the rating by using the U, Sigma, VT matrices.
+        :return: A 2-d Numpy array which contains the predicted ratings
+        &#34;&#34;&#34;
+        usk=np.dot(self.u,self.sigma)
+        u_sigma_v=np.dot(usk,self.vt)
+        #u_sigma_v=np.dot(usk,skv)
+        for i in range(len(u_sigma_v)):
+            u_sigma_v[i][u_sigma_v[i]!=0]+=self.user_offset[i]
+        #print(u_sigma_v)
+        return u_sigma_v
+
+    def create_2d_rating(self,rating):
+        &#34;&#34;&#34;
+        Creates a 2-d numpy array which contains the predicted and actual ratings
+        :param rating: A 2-d numpy array which contains the predicted ratings
+        :return: A 2-d numpy array which contains the actual and predicted ratings
+        &#34;&#34;&#34;
+        length=np.sum(full_data_set&gt;0)
+        rating_2d=np.zeros((2,length))
+        a=rating.shape
+        k=0
+        for i in range(a[0]):
+            for j in range(a[1]):
+                if full_data_set[i][j]!=0:
+                    rating_2d[0][k]=rating[i][j]
+                    rating_2d[1][k]=full_data_set[i][j]
+                    k+=1
+        return full_data_set</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="recommend.SVD.calculate_SVD_matrices"><code class="name flex">
+<span>def <span class="ident">calculate_SVD_matrices</span></span>(<span>self, bool_val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method creates the U, Sigma, VT matrices of the SVD decomposition using the Eigen values of the train matrices. The bool_val tells us about whether dimensionality reduction
+has to be done or not.
+:param bool_val: boolean value
+:return: void</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_SVD_matrices(self,bool_val):
+    &#34;&#34;&#34;
+    This method creates the U, Sigma, VT matrices of the SVD decomposition using the Eigen values of the train matrices. The bool_val tells us about whether dimensionality reduction
+    has to be done or not.
+    :param bool_val: boolean value
+    :return: void
+    &#34;&#34;&#34;
+
+    self.u,s,self.vt=np.linalg.svd(self.train_mat_copy,full_matrices=False)
+    self.sigma=np.zeros((len(self.u),len(self.vt.T)))
+    length=len(self.u)
+    for i in range(length):
+        self.sigma[i][i]=(s[i])
+    self.vt=self.vt.T
+    #print(self.sigma)
+    M=np.dot(self.train_mat_copy,self.train_mat_copy.T)
+    eigval,eigvec=np.linalg.eig(M)
+    indexes=np.argsort(-eigval)
+    u=eigvec[:,indexes]
+    sigma_sq=eigval[indexes]
+    sigma_sq[sigma_sq&lt;0]=0
+    sigma_sq=np.sqrt(sigma_sq)
+
+    M = np.dot(self.train_mat_copy.T, self.train_mat_copy)
+    eigval, eigvec = np.linalg.eig(M)
+    indexes = np.argsort(-eigval)
+    vt = eigvec[:, indexes]
+
+    a=(u.shape)
+    b=(vt.shape)
+
+    sigma=np.zeros((a[0],b[0]))
+    for i in range(a[0]):
+        sigma[i][i]=sigma_sq[i]
+
+    if bool_val is True:
+        self.dimensionality_reduction()</code></pre>
+</details>
+</dd>
+<dt id="recommend.SVD.create_2d_rating"><code class="name flex">
+<span>def <span class="ident">create_2d_rating</span></span>(<span>self, rating)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a 2-d numpy array which contains the predicted and actual ratings
+:param rating: A 2-d numpy array which contains the predicted ratings
+:return: A 2-d numpy array which contains the actual and predicted ratings</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_2d_rating(self,rating):
+    &#34;&#34;&#34;
+    Creates a 2-d numpy array which contains the predicted and actual ratings
+    :param rating: A 2-d numpy array which contains the predicted ratings
+    :return: A 2-d numpy array which contains the actual and predicted ratings
+    &#34;&#34;&#34;
+    length=np.sum(full_data_set&gt;0)
+    rating_2d=np.zeros((2,length))
+    a=rating.shape
+    k=0
+    for i in range(a[0]):
+        for j in range(a[1]):
+            if full_data_set[i][j]!=0:
+                rating_2d[0][k]=rating[i][j]
+                rating_2d[1][k]=full_data_set[i][j]
+                k+=1
+    return full_data_set</code></pre>
+</details>
+</dd>
+<dt id="recommend.SVD.dimensionality_reduction"><code class="name flex">
+<span>def <span class="ident">dimensionality_reduction</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reduces the dimensions of the SVD matrix by retaining 90% of the energy</p>
+<p>:return void</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dimensionality_reduction(self):
+    &#34;&#34;&#34;
+    This method reduces the dimensions of the SVD matrix by retaining 90% of the energy
+
+    :return void
+    &#34;&#34;&#34;
+    self.sigma=np.square(self.sigma)
+    full_sum=np.sum(self.sigma)
+    cnt=0
+    countinous_sum=0
+    length=len(self.sigma)
+    for i in range(length):
+        countinous_sum+=self.sigma[i][i]
+        retained_energy=(countinous_sum/full_sum)
+        if retained_energy &gt;=0.9:
+            cnt=i
+            break
+    for i in range(cnt,length):
+        self.sigma[i][i]=0
+    self.sigma=np.sqrt(self.sigma)</code></pre>
+</details>
+</dd>
+<dt id="recommend.SVD.normalize_data"><code class="name flex">
+<span>def <span class="ident">normalize_data</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method normalizes the given dataset bu subtracting rows from their row mean
+:return: void</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def normalize_data(self):
+    &#34;&#34;&#34;
+    This method normalizes the given dataset bu subtracting rows from their row mean
+    :return: void
+    &#34;&#34;&#34;
+
+    self.user_offset=np.zeros(len(train_mat))
+    self.train_mat_copy=full_data_set.copy()
+    length=len(train_mat)
+    for i in range (length):
+        self.user_offset[i]=((np.sum(self.train_mat_copy[i]))/(np.sum(self.train_mat_copy[i]&gt;0)))
+        self.train_mat_copy[i][self.train_mat_copy[i]&gt;0]-=self.user_offset[i]</code></pre>
+</details>
+</dd>
+<dt id="recommend.SVD.predict_rating"><code class="name flex">
+<span>def <span class="ident">predict_rating</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method predicts the rating by using the U, Sigma, VT matrices.
+:return: A 2-d Numpy array which contains the predicted ratings</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def predict_rating(self):
+    &#34;&#34;&#34;
+    This method predicts the rating by using the U, Sigma, VT matrices.
+    :return: A 2-d Numpy array which contains the predicted ratings
+    &#34;&#34;&#34;
+    usk=np.dot(self.u,self.sigma)
+    u_sigma_v=np.dot(usk,self.vt)
+    #u_sigma_v=np.dot(usk,skv)
+    for i in range(len(u_sigma_v)):
+        u_sigma_v[i][u_sigma_v[i]!=0]+=self.user_offset[i]
+    #print(u_sigma_v)
+    return u_sigma_v</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="recommend.CUR" href="#recommend.CUR">CUR</a></code></h4>
+<ul class="">
+<li><code><a title="recommend.CUR.create_CUR" href="#recommend.CUR.create_CUR">create_CUR</a></code></li>
+<li><code><a title="recommend.CUR.create_intersection" href="#recommend.CUR.create_intersection">create_intersection</a></code></li>
+<li><code><a title="recommend.CUR.create_probabilty" href="#recommend.CUR.create_probabilty">create_probabilty</a></code></li>
+<li><code><a title="recommend.CUR.dimensionality_reduction" href="#recommend.CUR.dimensionality_reduction">dimensionality_reduction</a></code></li>
+<li><code><a title="recommend.CUR.select_n_random_vectors" href="#recommend.CUR.select_n_random_vectors">select_n_random_vectors</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="recommend.Colaborative_Filtering" href="#recommend.Colaborative_Filtering">Colaborative_Filtering</a></code></h4>
+<ul class="">
+<li><code><a title="recommend.Colaborative_Filtering.calculate_mean" href="#recommend.Colaborative_Filtering.calculate_mean">calculate_mean</a></code></li>
+<li><code><a title="recommend.Colaborative_Filtering.calculate_weighted_avg" href="#recommend.Colaborative_Filtering.calculate_weighted_avg">calculate_weighted_avg</a></code></li>
+<li><code><a title="recommend.Colaborative_Filtering.cosine_similarity" href="#recommend.Colaborative_Filtering.cosine_similarity">cosine_similarity</a></code></li>
+<li><code><a title="recommend.Colaborative_Filtering.find_expected_ratings" href="#recommend.Colaborative_Filtering.find_expected_ratings">find_expected_ratings</a></code></li>
+<li><code><a title="recommend.Colaborative_Filtering.find_similar_score" href="#recommend.Colaborative_Filtering.find_similar_score">find_similar_score</a></code></li>
+<li><code><a title="recommend.Colaborative_Filtering.find_top_k" href="#recommend.Colaborative_Filtering.find_top_k">find_top_k</a></code></li>
+<li><code><a title="recommend.Colaborative_Filtering.normalizeMatrix" href="#recommend.Colaborative_Filtering.normalizeMatrix">normalizeMatrix</a></code></li>
+<li><code><a title="recommend.Colaborative_Filtering.pairwisesim" href="#recommend.Colaborative_Filtering.pairwisesim">pairwisesim</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="recommend.Error" href="#recommend.Error">Error</a></code></h4>
+<ul class="">
+<li><code><a title="recommend.Error.precison_at_top_k" href="#recommend.Error.precison_at_top_k">precison_at_top_k</a></code></li>
+<li><code><a title="recommend.Error.rmse" href="#recommend.Error.rmse">rmse</a></code></li>
+<li><code><a title="recommend.Error.spearman_rank_corelation" href="#recommend.Error.spearman_rank_corelation">spearman_rank_corelation</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="recommend.SVD" href="#recommend.SVD">SVD</a></code></h4>
+<ul class="">
+<li><code><a title="recommend.SVD.calculate_SVD_matrices" href="#recommend.SVD.calculate_SVD_matrices">calculate_SVD_matrices</a></code></li>
+<li><code><a title="recommend.SVD.create_2d_rating" href="#recommend.SVD.create_2d_rating">create_2d_rating</a></code></li>
+<li><code><a title="recommend.SVD.dimensionality_reduction" href="#recommend.SVD.dimensionality_reduction">dimensionality_reduction</a></code></li>
+<li><code><a title="recommend.SVD.normalize_data" href="#recommend.SVD.normalize_data">normalize_data</a></code></li>
+<li><code><a title="recommend.SVD.predict_rating" href="#recommend.SVD.predict_rating">predict_rating</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>
